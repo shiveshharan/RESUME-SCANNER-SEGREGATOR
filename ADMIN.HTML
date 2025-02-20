@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            padding: 30px;
+            max-width: 1200px; /* Increased from 900px to 1200px */
+            margin: 40px auto;  /* Added more top margin */
+        }
+        h1 {
+            color: #00c6ff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            word-break: break-word; /* Ensure long words don't overflow */
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }   
+        th {
+            background-color: #0072ff;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .btn {
+            background-color: #ff3d3d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #e63e3e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <form action="/clear_data" method="post">
+            <button type="submit" class="btn">Clear Data</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Filename</th>
+                    <th>Skills</th>
+                    <th>Experience Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resume in resumes %}
+                <tr>
+                    <td>{{ resume.name }}</td>
+                    <td>{{ resume.email }}</td>
+                    <td>{{ resume.contact }}</td>
+                    <td>{{ resume.filename }}</td>
+                    <td>{{ resume.skills }}</td>
+                    <td>{{ resume.experience_level }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
