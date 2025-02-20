@@ -1,0 +1,6 @@
+interviewee-manager/
+├── app.py                # Flask backend script
+├── uploads/              # Folder for storing uploaded resumes
+└── templates/            # Folder for HTML files
+    ├── index.html        # Interviewee submission form
+    └── admin.html        # Admin page to show priority list
